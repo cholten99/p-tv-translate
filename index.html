@@ -3,13 +3,16 @@
 <body> 
 
 <div style="text-align:center"> 
-  <button onclick="playPause()">Play/Pause</button> 
+  <button onclick="skip(-5)"><<</button>&nbsp;
+  <button onclick="skip(-1)"><</button>&nbsp;
+  <button onclick="playPause()">Play/Pause</button>&nbsp;
+  <button onclick="skip(1)">></button>&nbsp;
+  <button onclick="skip(5)">>></button>
   <p/> 
 
   <video id="video1" width="420">
-    <source src="http://www.madebyhangar.com/assets/videos/looped.mp4" type="video/mp4">
+    <source src="http://videoplayback.parliamentlive.tv/Player/Index/5421eea1-4531-4167-b87b-a5fade8bca30" type="video/mp4">
   </video>
-
   <video id="video2" width="0" height="0">
     <source src="http://www.x3k.net/html5/example3/mov_bbb.mp4" type="video/mp4">
   </video>
@@ -18,11 +21,9 @@
 
 <script> 
 var myVideo1 = document.getElementById("video1");
-myVideo1.loop = true;
 myVideo1.muted = true; 
 
 var myVideo2 = document.getElementById("video2");
-my
 
 function playPause() { 
     if (myVideo1.paused) { 
@@ -35,9 +36,13 @@ function playPause() {
     }
 } 
 
+function skip(jump) {
+  var myVideo1 = document.getElementById("video1");
+  myVideo1.currentTime = myVideo1.currentTime + jump;
+}
+
 </script> 
 
 </body> 
 </html>
-
 
